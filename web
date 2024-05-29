@@ -1,0 +1,126 @@
+import streamlit as st
+from PIL import Image
+
+# Set the page configuration
+st.set_page_config(
+    page_title="Ročníkové práce",
+    page_icon="🌟",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# Custom CSS for styling
+st.markdown("""
+    <style>
+        .main-header {
+            font-size: 2.5em;
+            color: #4B0082;
+            text-align: center;
+            margin-top: 0.5em;
+        }
+        .sub-header {
+            font-size: 1.75em;
+            color: #4B0082;
+            margin-top: 0.75em;
+        }
+        .description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-top: 1em;
+        }
+        .project-subheader {
+            font-size: 1.5em;
+            color: #4B0082;
+            margin-top: 1em;
+        }
+        .footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            font-family: Verdana, sans-serif;
+            color: #333;
+        }
+        .footer a {
+            color: #0044cc;
+            text-decoration: none;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# Sidebar content
+st.sidebar.title("Navigace")
+page = st.sidebar.radio("Chci na:", ["Domovská stránka", "Projekty", "Detaily"])
+
+# Home Page
+if page == "Domovská stránka":
+    st.markdown('<h1 class="main-header">Vítejte na mé webové stránce!</h1>', unsafe_allow_html=True)
+    st.markdown('<h2 class="sub-header">Pomáhá s ročníkovou prací</h2>', unsafe_allow_html=True)
+    st.markdown("""
+    
+    
+    <strong>Co to je vůbec ročníková práce?</strong><br>
+    Ročníková práce je projekt, na kterém studenti osmé třídy na scioškolách pracují během celého školního roku.
+    Nakonec je to celé završené velkou prezentací, kde jsou spolužáci a jejich rodiče.<br><br>
+    
+    <strong>Proč s tím chci pomoci?</strong><br>
+    Chci s tím pomoci, protože vím, jak moc je těžké to celé udělat.<br><br>
+    
+    <strong>S čím by specificky měla stránka pomoci?</strong><br>
+    Teď jsem udělala několik věcí s výběrem témata, a časem také chci přidat věci o organizaci.<br><br>
+    
+    <strong>Doufám, že se Vám to bude líbit :)</strong>
+    </div>
+    """, unsafe_allow_html=True)
+
+# Projects Page
+elif page == "Projekty":
+    st.markdown('<h1 class="main-header">Projekty</h1>', unsafe_allow_html=True)
+    st.markdown('<div class="description">Můžete si prohlédnout moje projekty kliknutím na link:</div>', unsafe_allow_html=True)
+
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown('<h3 class="project-subheader">Kvíz Alpha</h3>', unsafe_allow_html=True)
+        st.markdown("[Navštívit](http://192.168.0.237:8501)")
+        st.markdown("Kvíz, který pomůže s výběrem tématu. Je dělaný v Pythonu.")
+
+        st.markdown('<h3 class="project-subheader">Kvíz Beta</h3>', unsafe_allow_html=True)
+        st.markdown("[Visit Project Beta](https://02op6c3ngjw.typeform.com/to/PnNxYMHQ)")
+        st.markdown("Kvíz pro výběr témata. Je dělaný v Typeformu")
+
+    
+
+# Project Details Page
+elif page == "Detaily":
+    st.markdown('<h1 class="main-header">Project Details</h1>', unsafe_allow_html=True)
+    st.markdown('<h2 class="sub-header">Overview</h2>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="description">
+    Our project focuses on leveraging advanced technologies to create impactful solutions. Key areas include:
+    - **Artificial Intelligence**
+    - **Machine Learning**
+    - **Data Analytics**
+    - **Cloud Computing**
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown('<h2 class="sub-header">Features</h2>', unsafe_allow_html=True)
+    st.markdown("""
+    <div class="description">
+    - User-friendly Interface<br>
+    - High Performance<br>
+    - Scalable Architecture<br>
+    - Secure and Reliable
+    </div>
+    """, unsafe_allow_html=True)
+
+# Footer
+st.markdown("""
+<div class="footer">
+     2024. Developed with ❤️ by [Eliška]. 
+</div>
+""", unsafe_allow_html=True)
